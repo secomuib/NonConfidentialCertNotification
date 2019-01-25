@@ -1,4 +1,4 @@
-# NonConfidentialMultipartyRegisteredEDeliveryFactory
+# NonConfidentialMultipartyRegisteredEDelivery
 Non-Confidential Multiparty Registered eDelivery contract for Ethereum with Factory
 
 ## Requirements
