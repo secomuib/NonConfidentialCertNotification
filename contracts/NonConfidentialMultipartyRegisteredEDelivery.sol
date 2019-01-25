@@ -44,7 +44,7 @@ contract NonConfidentialMultipartyRegisteredEDeliveryFactory {
 // Non-Confidential Multiparty Registered eDelivery
 contract NonConfidentialMultipartyRegisteredEDelivery {
     // Possible states
-    enum State {notexists, created, cancelled, accepted, finished }
+    enum State {notexists, created, cancelled, accepted, finished, rejected }
     
     // Parties involved
     address public sender;
@@ -80,7 +80,7 @@ contract NonConfidentialMultipartyRegisteredEDelivery {
         term2 = _term2; // timeout term2, in seconds
     }
 
-    // accept() let receivers accept the delivery
+    // accept() lets receivers accept the delivery
     function accept() public {
         require(now < start+term1, "The timeout term1 has been reached");
         require(receiversState[msg.sender]==State.created, "Only receivers with 'created' state can accept");
@@ -89,7 +89,7 @@ contract NonConfidentialMultipartyRegisteredEDelivery {
         receiversState[msg.sender] = State.accepted;        
     }
 
-    // finish() let sender finish the delivery sending the message
+    // finish() lets sender finish the delivery sending the message
     function finish(string _message) public {
         require((now >= start+term1) || (acceptedReceivers>=receivers.length), 
             "The timeout term1 has not been reached and not all receivers have been accepted the delivery");
@@ -102,11 +102,13 @@ contract NonConfidentialMultipartyRegisteredEDelivery {
         for (uint i = 0; i<receivers.length; i++) {
             if (receiversState[receivers[i]] == State.accepted) {
                 receiversState[receivers[i]] = State.finished;    
+            } else if (receiversState[receivers[i]] == State.created) {
+                receiversState[receivers[i]] = State.rejected;    
             }
         }
     }
 
-    // cancel() let receivers cancel the delivery
+    // cancel() lets receivers cancel the delivery
     function cancel() public {
         require(now >= start+term2, "The timeout term2 has not been reached");
         require(receiversState[msg.sender]==State.accepted, "Only receivers with 'accepted' state can cancel");
