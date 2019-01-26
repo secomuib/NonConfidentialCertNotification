@@ -128,6 +128,8 @@ contract NonConfidentialMultipartyRegisteredEDelivery {
             return "accepted";
         } else if (receiversState[_receiver]==State.finished) {
             return "finished";
+        } else if (receiversState[_receiver]==State.rejected) {
+            return "rejected";
         } 
     }
 }
