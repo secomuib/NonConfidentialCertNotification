@@ -9,6 +9,7 @@
   },
   "scripts": {
     "deploy": "node deploy.js",
+    "performance": "node performance.js",
     "test": "mocha"
   },
   "repository": {

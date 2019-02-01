@@ -22,7 +22,7 @@ beforeEach(async () => {
     .deploy({ data: compiledFactory.bytecode, arguments: [] })
     .send({ from: accounts[0], gas: '3000000' });
 
-  var a = await factoryContract.methods
+  await factoryContract.methods
     .createDelivery([accounts[1],accounts[2]], web3.utils.keccak256("Test message"), 600, 1200)
     .send({ from: accounts[0], gas: '3000000', value: '100' });
 
