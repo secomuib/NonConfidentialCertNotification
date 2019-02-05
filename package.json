@@ -8,6 +8,7 @@
     "test": "test"
   },
   "scripts": {
+    "compile": "node compile.js",
     "deploy": "node deploy.js",
     "performance": "node performance.js",
     "test": "mocha"

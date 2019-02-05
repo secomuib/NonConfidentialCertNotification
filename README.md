@@ -9,6 +9,11 @@ To install all dependencies, if necessary:
 npm install
 ```
 ## Execution
+To compile the smart contract:
+```
+npm run compile
+```
+
 To deploy to Rinkeby test network:
 ```
 npm run deploy
