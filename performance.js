@@ -7,6 +7,9 @@ const compiledDeliveryPath = './contracts/build/NonConfidentialMultipartyRegiste
 const compiledFactory = require(compiledFactoryPath);
 const compiledDelivery = require(compiledDeliveryPath);
 
+const compiledNotification2partyPath = './contracts_2party/build/NonConfidentialNotification.json';
+const compiledNotification2party = require(compiledNotification2partyPath);
+
 // To prevent warning "MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 data listeners added. Use emitter.setMaxListeners() to increase limit"
 require('events').EventEmitter.defaultMaxListeners = 0;
 
@@ -21,6 +24,7 @@ const performance = async (functionToTest, functionName, account) => {
     return returnValue;
 };
 
+// Test multiparty contract
 const testPerformance = async (numberReceivers) => {
     let accounts = await web3.eth.getAccounts();
     let gasPrice = await web3.eth.getGasPrice();
@@ -28,8 +32,6 @@ const testPerformance = async (numberReceivers) => {
     let factoryContract;
     let deliveryContract;
     let deliveryContractAddress;
-    let balance1, balance2;
-    let hrstart, hrend;
     
     // Add n receivers to the array of receivers
     let arrayReceivers = [];
@@ -39,7 +41,7 @@ const testPerformance = async (numberReceivers) => {
 
     console.log('');
     console.log('For %d receiver/s', numberReceivers);
-    console.log('---------------------');
+    console.log('------------------------');
 
     // Deploy factory
     factoryContract = await performance(
@@ -95,11 +97,56 @@ const testPerformance = async (numberReceivers) => {
     );
 };
 
+// Test 2-party contract
+const testPerformance2party = async () => {
+    let accounts = await web3.eth.getAccounts();
+    let gasPrice = await web3.eth.getGasPrice();
+    
+    let notification2partyContract;
+    
+
+    console.log('');
+    console.log('For 2-party notification');
+    console.log('------------------------');
+
+    // Deploy factory
+    notification2partyContract = await performance(
+        async () => {
+            return await new web3.eth.Contract(JSON.parse(compiledNotification2party.interface))
+                .deploy({ data: compiledNotification2party.bytecode, arguments: [accounts[1], web3.utils.keccak256("Test message"), 600] })
+                .send({ from: accounts[0], gas: '3000000', value: '1' });
+        },
+        'createDelivery-deploy',
+        accounts[0]
+    );
+
+    // accept() from accounts[1]
+    await performance(
+        async () => {
+            await notification2partyContract.methods.accept()
+                .send({ from: accounts[1], gas: '3000000' });
+        },
+        'accept',
+        accounts[1]
+    );
+
+    // finish()
+    await performance(
+        async () => {
+            await notification2partyContract.methods.finish("Test message")
+                .send({ from: accounts[0], gas: '3000000' });
+        },
+        'finish',
+        accounts[0]
+    );
+};
+
 const init = async (repetitions) => {
     for (let i=0; i<repetitions; i++) {
         await testPerformance(1);
         await testPerformance(2);
         await testPerformance(10);
+        await testPerformance2party();
     }
 }
 
