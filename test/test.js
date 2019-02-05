@@ -3,9 +3,10 @@ const ganache = require('ganache-cli');
 const Web3 = require('web3');
 const web3 = new Web3(ganache.provider());
 
-const compile = require('../compile');
-const compiledFactory = compile.NonConfidentialMultipartyRegisteredEDeliveryFactory;
-const compiledDelivery = compile.NonConfidentialMultipartyRegisteredEDelivery;
+const compiledFactoryPath = '../contracts/build/NonConfidentialMultipartyRegisteredEDeliveryFactory.json';
+const compiledDeliveryPath = '../contracts/build/NonConfidentialMultipartyRegisteredEDelivery.json';
+const compiledFactory = require(compiledFactoryPath);
+const compiledDelivery = require(compiledDeliveryPath);
 
 let factoryContract;
 let deliveryContract;

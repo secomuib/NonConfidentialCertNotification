@@ -2,8 +2,8 @@ const HDWalletProvider = require('truffle-hdwallet-provider');
 const Web3 = require('web3');
 const fs = require("fs");
 
-const compile = require('./compile');
-const compiledFactory = compile.NonConfidentialMultipartyRegisteredEDeliveryFactory;
+const compiledFactoryPath = './contracts/build/NonConfidentialMultipartyRegisteredEDeliveryFactory.json';
+const compiledFactory = require(compiledFactoryPath);
 
 const provider = new HDWalletProvider(
   'tragic square news business dad cricket nurse athlete tide split about ring',
