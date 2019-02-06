@@ -25,13 +25,12 @@ const performance = async (functionToTest, functionName, account) => {
 };
 
 // Test multiparty contract
-const testPerformance = async (numberReceivers) => {
+const testPerformance = async (numberReceivers, repetitions) => {
     let accounts = await web3.eth.getAccounts();
     let gasPrice = await web3.eth.getGasPrice();
     
-    let factoryContract;
-    let deliveryContract;
-    let deliveryContractAddress;
+    let factoryContract = [];
+    let deliveryContract = [];
     
     // Add n receivers to the array of receivers
     let arrayReceivers = [];
@@ -44,110 +43,123 @@ const testPerformance = async (numberReceivers) => {
     console.log('------------------------');
 
     // Deploy factory
-    factoryContract = await performance(
-        async () => {
-            return await new web3.eth.Contract(JSON.parse(compiledFactory.interface))
-                .deploy({ data: compiledFactory.bytecode, arguments: [] })
-                .send({ from: accounts[0], gas: '3000000' });
-        },
-        'deploy',
-        accounts[0]
-    );
+    for (let i = 0; i < repetitions; i++) {
+        factoryContract.push(await performance(
+            async () => {
+                return await new web3.eth.Contract(JSON.parse(compiledFactory.interface))
+                    .deploy({ data: compiledFactory.bytecode, arguments: [] })
+                    .send({ from: accounts[0], gas: '3000000' });
+            },
+            'deploy',
+            accounts[0]
+        ));
+    }
 
     // createDelivery()
-    await performance(
-        async () => {
-            await factoryContract.methods
-                .createDelivery(arrayReceivers, web3.utils.keccak256("Test message"), 600, 1200)
-                .send({ from: accounts[0], gas: '3000000', value: '1' });
-        },
-        'createDelivery',
-        accounts[0]
-    );
+    for (let i = 0; i < repetitions; i++) {
+        await performance(
+            async () => {
+                await factoryContract[i].methods
+                    .createDelivery(arrayReceivers, web3.utils.keccak256("Test message"), 600, 1200)
+                    .send({ from: accounts[0], gas: '3000000', value: '1' });
+            },
+            'createDelivery',
+            accounts[0]
+        );
 
-    // Get the deployed delivery contract
-    const addresses = await factoryContract.methods.getDeliveries().call();
-    deliveryContractAddress = addresses[0];
-    deliveryContract = await new web3.eth.Contract(JSON.parse(compiledDelivery.interface), deliveryContractAddress);
+        // Get the deployed delivery contract
+        let addresses = await factoryContract[i].methods.getDeliveries().call();
+        let deliveryContractAddress = addresses[0];
+        deliveryContract.push(await new web3.eth.Contract(JSON.parse(compiledDelivery.interface), deliveryContractAddress));
+    }
 
     // accept() from accounts[1]
-    await performance(
-        async () => {
-            await deliveryContract.methods.accept()
-                .send({ from: arrayReceivers[0], gas: '3000000' });
-        },
-        'accept',
-        arrayReceivers[0]
-    );
+    for (let i = 0; i < repetitions; i++) {
+        await performance(
+            async () => {
+                await deliveryContract[i].methods.accept()
+                    .send({ from: arrayReceivers[0], gas: '3000000' });
+            },
+            'accept',
+            arrayReceivers[0]
+        );
+    }
     
     // accept() from accounts[] of the rest of receivers
-    for (let i = 1; i<numberReceivers; i++) {
-        await deliveryContract.methods.accept()
-            .send({ from: arrayReceivers[i], gas: '3000000' });
+    for (let i = 0; i < repetitions; i++) {
+        for (let j = 1; j<numberReceivers; j++) {
+            await deliveryContract[i].methods.accept()
+                .send({ from: arrayReceivers[j], gas: '3000000' });
+        }
     }
 
     // finish()
-    await performance(
-        async () => {
-            await deliveryContract.methods.finish("Test message")
-                .send({ from: accounts[0], gas: '3000000' });
-        },
-        'finish',
-        accounts[0]
-    );
+    for (let i = 0; i < repetitions; i++) {
+        await performance(
+            async () => {
+                await deliveryContract[i].methods.finish("Test message")
+                    .send({ from: accounts[0], gas: '3000000' });
+            },
+            'finish',
+            accounts[0]
+        );
+    }
 };
 
 // Test 2-party contract
-const testPerformance2party = async () => {
+const testPerformance2party = async (repetitions) => {
     let accounts = await web3.eth.getAccounts();
     let gasPrice = await web3.eth.getGasPrice();
     
-    let notification2partyContract;
+    let notification2partyContract = [];
     
-
     console.log('');
     console.log('For 2-party notification');
     console.log('------------------------');
 
     // Deploy factory
-    notification2partyContract = await performance(
-        async () => {
-            return await new web3.eth.Contract(JSON.parse(compiledNotification2party.interface))
-                .deploy({ data: compiledNotification2party.bytecode, arguments: [accounts[1], web3.utils.keccak256("Test message"), 600] })
-                .send({ from: accounts[0], gas: '3000000', value: '1' });
-        },
-        'createDelivery-deploy',
-        accounts[0]
-    );
+    for (let i = 0; i < repetitions; i++) {
+        notification2partyContract.push(await performance(
+            async () => {
+                return await new web3.eth.Contract(JSON.parse(compiledNotification2party.interface))
+                    .deploy({ data: compiledNotification2party.bytecode, arguments: [accounts[1], web3.utils.keccak256("Test message"), 600] })
+                    .send({ from: accounts[0], gas: '3000000', value: '1' });
+            },
+            'createDelivery-deploy',
+            accounts[0]
+        )); 
+    }
 
     // accept() from accounts[1]
-    await performance(
-        async () => {
-            await notification2partyContract.methods.accept()
-                .send({ from: accounts[1], gas: '3000000' });
-        },
-        'accept',
-        accounts[1]
-    );
+    for (let i = 0; i < repetitions; i++) {
+        await performance(
+            async () => {
+                await notification2partyContract[i].methods.accept()
+                    .send({ from: accounts[1], gas: '3000000' });
+            },
+            'accept',
+            accounts[1]
+        );
+    }
 
     // finish()
-    await performance(
-        async () => {
-            await notification2partyContract.methods.finish("Test message")
-                .send({ from: accounts[0], gas: '3000000' });
-        },
-        'finish',
-        accounts[0]
-    );
+    for (let i = 0; i < repetitions; i++) {
+        await performance(
+            async () => {
+                await notification2partyContract[i].methods.finish("Test message")
+                    .send({ from: accounts[0], gas: '3000000' });
+            },
+            'finish',
+            accounts[0]
+        );
+    }
 };
 
 const init = async (repetitions) => {
-    for (let i=0; i<repetitions; i++) {
-        await testPerformance(1);
-        await testPerformance(2);
-        await testPerformance(10);
-        await testPerformance2party();
-    }
+        await testPerformance(1, repetitions);
+        await testPerformance(2, repetitions);
+        await testPerformance(10, repetitions);
+        await testPerformance2party(repetitions);
 }
 
-init(2)
+init(10)
