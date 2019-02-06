@@ -1,0 +1,45 @@
+> nonconfidentialmultipartyregisterededelivery@1.0.0 performance /Users/miquel/Desktop/blockchain/NonConfidentialMultipartyRegisteredEDelivery
+> node performance.js
+
+
+For 1 receiver/s
+------------------------
+Delay of function deploy():                     0s 52.556209ms
+Cost of function deploy():                 31,365,679,999,991,800
+Delay of function createDelivery():             0s 87.331281ms
+Cost of function createDelivery():         20,768,040,000,012,300
+Delay of function accept():                     0s 30.977958ms
+Cost of function accept():                    954,220,000,002,048
+Delay of function finish():                     0s 58.595766ms
+Cost of function finish():                  1,212,839,999,995,904
+
+For 2 receiver/s
+------------------------
+Delay of function deploy():                     0s 59.646578ms
+Cost of function deploy():                 31,365,679,999,991,800
+Delay of function createDelivery():             0s 93.217731ms
+Cost of function createDelivery():         22,446,099,999,998,000
+Delay of function accept():                     0s 31.029331ms
+Cost of function accept():                    954,219,999,985,664
+Delay of function finish():                     0s 53.749045ms
+Cost of function finish():                  1,354,500,000,006,144
+
+For 10 receiver/s
+------------------------
+Delay of function deploy():                     0s 61.878473ms
+Cost of function deploy():                 31,365,679,999,991,800
+Delay of function createDelivery():             0s 231.464529ms
+Cost of function createDelivery():         35,867,880,000,012,300
+Delay of function accept():                     0s 35.116239ms
+Cost of function accept():                    954,220,000,002,048
+Delay of function finish():                     0s 101.176103ms
+Cost of function finish():                  2,487,779,999,989,760
+
+For 2-party notification
+------------------------
+Delay of function createDelivery-deploy():      0s 64.358095ms
+Cost of function createDelivery-deploy():  14,851,379,999,998,000
+Delay of function accept():                     0s 34.45054ms
+Cost of function accept():                    870,900,000,014,336
+Delay of function finish():                     0s 49.684108ms
+Cost of function finish():                  1,189,780,000,014,336
