@@ -4,312 +4,342 @@
 
 For 1 receiver/s
 ------------------------
-Delay of function deploy(): 0s 110.771666ms
+Delay of function deploy(): 0s 91.047525ms
 Cost of function deploy():                 31,365,680,000,008,200
-Delay of function deploy(): 0s 63.360222ms
+Delay of function deploy(): 0s 50.014875ms
 Cost of function deploy():                 31,365,679,999,991,800
-Delay of function deploy(): 0s 63.543957ms
+Delay of function deploy(): 0s 39.521892ms
 Cost of function deploy():                 31,365,679,999,991,800
-Delay of function deploy(): 0s 57.566678ms
+Delay of function deploy(): 0s 46.243157ms
 Cost of function deploy():                 31,365,680,000,008,200
-Delay of function deploy(): 0s 52.4441ms
+Delay of function deploy(): 0s 46.809965ms
 Cost of function deploy():                 31,365,680,000,008,200
-Delay of function deploy(): 0s 56.580347ms
+Delay of function deploy(): 0s 50.088654ms
 Cost of function deploy():                 31,365,679,999,991,800
-Delay of function deploy(): 0s 49.426605ms
+Delay of function deploy(): 0s 45.801323ms
 Cost of function deploy():                 31,365,679,999,991,800
-Delay of function deploy(): 0s 45.497013ms
+Delay of function deploy(): 0s 44.742032ms
 Cost of function deploy():                 31,365,680,000,008,200
-Delay of function deploy(): 0s 44.953881ms
+Delay of function deploy(): 0s 47.94762ms
 Cost of function deploy():                 31,365,680,000,008,200
-Delay of function deploy(): 0s 39.267368ms
+Delay of function deploy(): 0s 47.475093ms
 Cost of function deploy():                 31,365,679,999,991,800
-Delay of function createDelivery(): 0s 104.576054ms
+AVERAGE DELAY: 50.9692136ms
+AVERAGE COST: 31,365,680,000,000,000
+Delay of function createDelivery(): 0s 100.086544ms
 Cost of function createDelivery():                 20,768,039,999,995,900
-Delay of function createDelivery(): 0s 94.692615ms
+Delay of function createDelivery(): 0s 87.421228ms
 Cost of function createDelivery():                 20,768,040,000,012,300
-Delay of function createDelivery(): 0s 81.932991ms
+Delay of function createDelivery(): 0s 82.81642ms
 Cost of function createDelivery():                 20,768,039,999,995,900
-Delay of function createDelivery(): 0s 68.561241ms
+Delay of function createDelivery(): 0s 79.782777ms
 Cost of function createDelivery():                 20,768,039,999,995,900
-Delay of function createDelivery(): 0s 81.02092ms
+Delay of function createDelivery(): 0s 70.042339ms
 Cost of function createDelivery():                 20,768,039,999,995,900
-Delay of function createDelivery(): 0s 79.212941ms
+Delay of function createDelivery(): 0s 80.107255ms
 Cost of function createDelivery():                 20,768,040,000,012,300
-Delay of function createDelivery(): 0s 66.727956ms
+Delay of function createDelivery(): 0s 76.684035ms
 Cost of function createDelivery():                 20,768,039,999,995,900
-Delay of function createDelivery(): 0s 82.043539ms
+Delay of function createDelivery(): 0s 66.109177ms
 Cost of function createDelivery():                 20,768,039,999,995,900
-Delay of function createDelivery(): 0s 69.421707ms
+Delay of function createDelivery(): 0s 67.176379ms
 Cost of function createDelivery():                 20,768,039,999,995,900
-Delay of function createDelivery(): 0s 68.709445ms
+Delay of function createDelivery(): 0s 66.409646ms
 Cost of function createDelivery():                 20,768,040,000,012,300
-Delay of function accept(): 0s 46.495312ms
+AVERAGE DELAY: 77.66358ms
+AVERAGE COST: 20,768,040,000,000,800
+Delay of function accept(): 0s 40.055272ms
 Cost of function accept():                    954,220,000,002,048
-Delay of function accept(): 0s 36.984761ms
+Delay of function accept(): 0s 43.861205ms
 Cost of function accept():                    954,220,000,002,048
-Delay of function accept(): 0s 34.016257ms
+Delay of function accept(): 0s 38.77176ms
 Cost of function accept():                    954,220,000,002,048
-Delay of function accept(): 0s 35.193703ms
+Delay of function accept(): 0s 34.176452ms
 Cost of function accept():                    954,220,000,002,048
-Delay of function accept(): 0s 47.38775ms
+Delay of function accept(): 0s 41.240387ms
 Cost of function accept():                    954,219,999,985,664
-Delay of function accept(): 0s 38.146182ms
+Delay of function accept(): 0s 38.516213ms
 Cost of function accept():                    954,220,000,002,048
-Delay of function accept(): 0s 37.492601ms
+Delay of function accept(): 0s 42.288772ms
 Cost of function accept():                    954,220,000,002,048
-Delay of function accept(): 0s 39.356512ms
+Delay of function accept(): 0s 34.004863ms
 Cost of function accept():                    954,220,000,002,048
-Delay of function accept(): 0s 36.188885ms
+Delay of function accept(): 0s 30.827699ms
 Cost of function accept():                    954,220,000,002,048
-Delay of function accept(): 0s 48.860164ms
+Delay of function accept(): 0s 41.230489ms
 Cost of function accept():                    954,220,000,002,048
-Delay of function finish(): 0s 52.51613ms
+AVERAGE DELAY: 38.4973112ms
+AVERAGE COST: 954,220,000,000,410
+Delay of function finish(): 0s 55.236439ms
 Cost of function finish():                  1,212,839,999,995,904
-Delay of function finish(): 0s 50.109267ms
+Delay of function finish(): 0s 47.196227ms
 Cost of function finish():                  1,212,839,999,995,904
-Delay of function finish(): 0s 55.130561ms
+Delay of function finish(): 0s 48.08944ms
 Cost of function finish():                  1,212,839,999,995,904
-Delay of function finish(): 0s 64.658732ms
+Delay of function finish(): 0s 42.359332ms
 Cost of function finish():                  1,212,840,000,012,288
-Delay of function finish(): 0s 96.532265ms
+Delay of function finish(): 0s 46.19728ms
 Cost of function finish():                  1,212,839,999,995,904
-Delay of function finish(): 0s 73.49068ms
+Delay of function finish(): 0s 52.862182ms
 Cost of function finish():                  1,212,839,999,995,904
-Delay of function finish(): 0s 80.933647ms
+Delay of function finish(): 0s 44.958302ms
 Cost of function finish():                  1,212,839,999,995,904
-Delay of function finish(): 0s 79.845865ms
+Delay of function finish(): 0s 45.628526ms
 Cost of function finish():                  1,212,840,000,012,288
-Delay of function finish(): 0s 74.287043ms
+Delay of function finish(): 0s 46.613324ms
 Cost of function finish():                  1,212,839,999,995,904
-Delay of function finish(): 0s 66.06613ms
+Delay of function finish(): 0s 43.215917ms
 Cost of function finish():                  1,212,839,999,995,904
+AVERAGE DELAY: 47.2356969ms
+AVERAGE COST: 1,212,839,999,999,180
 
 For 2 receiver/s
 ------------------------
-Delay of function deploy(): 0s 56.180853ms
+Delay of function deploy(): 0s 45.74425ms
 Cost of function deploy():                 31,365,680,000,008,200
-Delay of function deploy(): 0s 39.085947ms
+Delay of function deploy(): 0s 52.554671ms
 Cost of function deploy():                 31,365,679,999,991,800
-Delay of function deploy(): 0s 36.299872ms
+Delay of function deploy(): 0s 40.122022ms
 Cost of function deploy():                 31,365,679,999,991,800
-Delay of function deploy(): 0s 62.06929ms
+Delay of function deploy(): 0s 40.330714ms
 Cost of function deploy():                 31,365,680,000,008,200
-Delay of function deploy(): 0s 44.287976ms
+Delay of function deploy(): 0s 39.841115ms
 Cost of function deploy():                 31,365,680,000,008,200
-Delay of function deploy(): 0s 67.003288ms
+Delay of function deploy(): 0s 40.579125ms
 Cost of function deploy():                 31,365,679,999,991,800
-Delay of function deploy(): 0s 50.057276ms
+Delay of function deploy(): 0s 39.30214ms
 Cost of function deploy():                 31,365,679,999,991,800
-Delay of function deploy(): 0s 53.511956ms
+Delay of function deploy(): 0s 42.988823ms
 Cost of function deploy():                 31,365,680,000,008,200
-Delay of function deploy(): 0s 48.397116ms
+Delay of function deploy(): 0s 44.815916ms
 Cost of function deploy():                 31,365,680,000,008,200
-Delay of function deploy(): 0s 37.116866ms
+Delay of function deploy(): 0s 37.947446ms
 Cost of function deploy():                 31,365,679,999,991,800
-Delay of function createDelivery(): 0s 101.682503ms
+AVERAGE DELAY: 42.4226222ms
+AVERAGE COST: 31,365,680,000,000,000
+Delay of function createDelivery(): 0s 93.327413ms
 Cost of function createDelivery():                 22,446,099,999,998,000
-Delay of function createDelivery(): 0s 93.331776ms
+Delay of function createDelivery(): 0s 85.205759ms
 Cost of function createDelivery():                 22,446,099,999,998,000
-Delay of function createDelivery(): 0s 88.221906ms
+Delay of function createDelivery(): 0s 75.833861ms
 Cost of function createDelivery():                 22,446,099,999,998,000
-Delay of function createDelivery(): 0s 99.165879ms
+Delay of function createDelivery(): 0s 71.91711ms
 Cost of function createDelivery():                 22,446,100,000,014,300
-Delay of function createDelivery(): 0s 91.52873ms
+Delay of function createDelivery(): 0s 74.052633ms
 Cost of function createDelivery():                 22,446,099,999,998,000
-Delay of function createDelivery(): 0s 74.622884ms
+Delay of function createDelivery(): 0s 62.877331ms
 Cost of function createDelivery():                 22,446,099,999,998,000
-Delay of function createDelivery(): 0s 65.878924ms
+Delay of function createDelivery(): 0s 67.253482ms
 Cost of function createDelivery():                 22,446,099,999,998,000
-Delay of function createDelivery(): 0s 80.450939ms
+Delay of function createDelivery(): 0s 74.966831ms
 Cost of function createDelivery():                 22,446,099,999,998,000
-Delay of function createDelivery(): 0s 77.214134ms
+Delay of function createDelivery(): 0s 76.44417ms
 Cost of function createDelivery():                 22,446,099,999,998,000
-Delay of function createDelivery(): 0s 84.317126ms
+Delay of function createDelivery(): 0s 77.240588ms
 Cost of function createDelivery():                 22,446,099,999,998,000
-Delay of function accept(): 0s 39.700118ms
+AVERAGE DELAY: 75.9119178ms
+AVERAGE COST: 22,446,099,999,999,600
+Delay of function accept(): 0s 37.427655ms
 Cost of function accept():                    954,220,000,002,048
-Delay of function accept(): 0s 38.229023ms
+Delay of function accept(): 0s 39.389294ms
 Cost of function accept():                    954,219,999,985,664
-Delay of function accept(): 0s 53.892326ms
+Delay of function accept(): 0s 42.028377ms
 Cost of function accept():                    954,220,000,002,048
-Delay of function accept(): 0s 39.399442ms
+Delay of function accept(): 0s 35.655215ms
 Cost of function accept():                    954,220,000,002,048
-Delay of function accept(): 0s 37.451722ms
+Delay of function accept(): 0s 44.972447ms
 Cost of function accept():                    954,220,000,002,048
-Delay of function accept(): 0s 48.494986ms
+Delay of function accept(): 0s 42.043607ms
 Cost of function accept():                    954,220,000,002,048
-Delay of function accept(): 0s 40.564061ms
+Delay of function accept(): 0s 34.893118ms
 Cost of function accept():                    954,220,000,002,048
-Delay of function accept(): 0s 53.393353ms
+Delay of function accept(): 0s 34.136823ms
 Cost of function accept():                    954,220,000,002,048
-Delay of function accept(): 0s 41.128142ms
+Delay of function accept(): 0s 41.141132ms
 Cost of function accept():                    954,220,000,002,048
-Delay of function accept(): 0s 39.931735ms
+Delay of function accept(): 0s 36.410968ms
 Cost of function accept():                    954,220,000,002,048
-Delay of function finish(): 0s 47.433472ms
+AVERAGE DELAY: 38.80986360000001ms
+AVERAGE COST: 954,220,000,000,410
+Delay of function finish(): 0s 47.092306ms
 Cost of function finish():                  1,354,500,000,006,144
-Delay of function finish(): 0s 44.376556ms
+Delay of function finish(): 0s 47.942362ms
 Cost of function finish():                  1,354,500,000,006,144
-Delay of function finish(): 0s 56.844885ms
+Delay of function finish(): 0s 54.246073ms
 Cost of function finish():                  1,354,499,999,989,760
-Delay of function finish(): 0s 53.279169ms
+Delay of function finish(): 0s 47.706165ms
 Cost of function finish():                  1,354,500,000,006,144
-Delay of function finish(): 0s 54.42116ms
+Delay of function finish(): 0s 52.227457ms
 Cost of function finish():                  1,354,499,999,989,760
-Delay of function finish(): 0s 49.383137ms
+Delay of function finish(): 0s 41.648243ms
 Cost of function finish():                  1,354,500,000,006,144
-Delay of function finish(): 0s 52.825385ms
+Delay of function finish(): 0s 48.838873ms
 Cost of function finish():                  1,354,500,000,006,144
-Delay of function finish(): 0s 46.089403ms
+Delay of function finish(): 0s 45.186781ms
 Cost of function finish():                  1,354,499,999,989,760
-Delay of function finish(): 0s 61.257667ms
+Delay of function finish(): 0s 52.052407ms
 Cost of function finish():                  1,354,500,000,006,144
-Delay of function finish(): 0s 48.203457ms
+Delay of function finish(): 0s 49.771109ms
 Cost of function finish():                  1,354,499,999,989,760
+AVERAGE DELAY: 48.6711776ms
+AVERAGE COST: 1,354,499,999,999,590
 
 For 10 receiver/s
 ------------------------
-Delay of function deploy(): 0s 42.292132ms
+Delay of function deploy(): 0s 47.574239ms
 Cost of function deploy():                 31,365,680,000,008,200
-Delay of function deploy(): 0s 46.14914ms
+Delay of function deploy(): 0s 41.446226ms
 Cost of function deploy():                 31,365,680,000,008,200
-Delay of function deploy(): 0s 50.531355ms
+Delay of function deploy(): 0s 50.640818ms
 Cost of function deploy():                 31,365,679,999,991,800
-Delay of function deploy(): 0s 47.140521ms
+Delay of function deploy(): 0s 41.778564ms
 Cost of function deploy():                 31,365,679,999,991,800
-Delay of function deploy(): 0s 45.609459ms
+Delay of function deploy(): 0s 41.429425ms
 Cost of function deploy():                 31,365,680,000,008,200
-Delay of function deploy(): 0s 39.881538ms
+Delay of function deploy(): 0s 41.38123ms
 Cost of function deploy():                 31,365,680,000,008,200
-Delay of function deploy(): 0s 50.254772ms
+Delay of function deploy(): 0s 45.777274ms
 Cost of function deploy():                 31,365,679,999,991,800
-Delay of function deploy(): 0s 41.38316ms
+Delay of function deploy(): 0s 47.53805ms
 Cost of function deploy():                 31,365,679,999,991,800
-Delay of function deploy(): 0s 43.474503ms
+Delay of function deploy(): 0s 43.111307ms
 Cost of function deploy():                 31,365,680,000,008,200
-Delay of function deploy(): 0s 41.424602ms
+Delay of function deploy(): 0s 41.484421ms
 Cost of function deploy():                 31,365,680,000,008,200
-Delay of function createDelivery(): 0s 258.644641ms
-Cost of function createDelivery():                 35,869,159,999,995,900
-Delay of function createDelivery(): 0s 215.647431ms
-Cost of function createDelivery():                 35,869,159,999,995,900
-Delay of function createDelivery(): 0s 158.907538ms
-Cost of function createDelivery():                 35,869,159,999,995,900
-Delay of function createDelivery(): 0s 169.273541ms
-Cost of function createDelivery():                 35,869,160,000,012,300
-Delay of function createDelivery(): 0s 150.359954ms
-Cost of function createDelivery():                 35,869,159,999,995,900
-Delay of function createDelivery(): 0s 151.576938ms
-Cost of function createDelivery():                 35,869,159,999,995,900
-Delay of function createDelivery(): 0s 160.518236ms
-Cost of function createDelivery():                 35,869,159,999,995,900
-Delay of function createDelivery(): 0s 149.150212ms
-Cost of function createDelivery():                 35,869,160,000,012,300
-Delay of function createDelivery(): 0s 160.502479ms
-Cost of function createDelivery():                 35,869,159,999,995,900
-Delay of function createDelivery(): 0s 158.693743ms
-Cost of function createDelivery():                 35,869,159,999,995,900
-Delay of function accept(): 0s 34.135082ms
+AVERAGE DELAY: 44.2161554ms
+AVERAGE COST: 31,365,680,000,001,600
+Delay of function createDelivery(): 0s 175.561123ms
+Cost of function createDelivery():                 35,870,439,999,995,900
+Delay of function createDelivery(): 0s 241.447628ms
+Cost of function createDelivery():                 35,870,439,999,995,900
+Delay of function createDelivery(): 0s 179.436494ms
+Cost of function createDelivery():                 35,870,439,999,995,900
+Delay of function createDelivery(): 0s 154.555019ms
+Cost of function createDelivery():                 35,870,440,000,012,300
+Delay of function createDelivery(): 0s 158.164416ms
+Cost of function createDelivery():                 35,870,439,999,995,900
+Delay of function createDelivery(): 0s 163.274889ms
+Cost of function createDelivery():                 35,870,439,999,995,900
+Delay of function createDelivery(): 0s 155.768259ms
+Cost of function createDelivery():                 35,870,439,999,995,900
+Delay of function createDelivery(): 0s 163.859368ms
+Cost of function createDelivery():                 35,870,440,000,012,300
+Delay of function createDelivery(): 0s 157.876806ms
+Cost of function createDelivery():                 35,870,439,999,995,900
+Delay of function createDelivery(): 0s 150.380965ms
+Cost of function createDelivery():                 35,870,439,999,995,900
+AVERAGE DELAY: 170.03249669999997ms
+AVERAGE COST: 35,870,439,999,999,200
+Delay of function accept(): 0s 41.655916ms
 Cost of function accept():                    954,219,999,985,664
-Delay of function accept(): 0s 35.091244ms
+Delay of function accept(): 0s 40.254018ms
 Cost of function accept():                    954,220,000,002,048
-Delay of function accept(): 0s 42.307711ms
+Delay of function accept(): 0s 38.56655ms
 Cost of function accept():                    954,220,000,002,048
-Delay of function accept(): 0s 31.732498ms
+Delay of function accept(): 0s 35.863276ms
 Cost of function accept():                    954,220,000,002,048
-Delay of function accept(): 0s 35.768617ms
+Delay of function accept(): 0s 34.566498ms
 Cost of function accept():                    954,220,000,002,048
-Delay of function accept(): 0s 36.505311ms
+Delay of function accept(): 0s 45.86127ms
 Cost of function accept():                    954,220,000,002,048
-Delay of function accept(): 0s 53.209074ms
+Delay of function accept(): 0s 43.59451ms
 Cost of function accept():                    954,220,000,002,048
-Delay of function accept(): 0s 37.83752ms
+Delay of function accept(): 0s 36.069053ms
 Cost of function accept():                    954,219,999,985,664
-Delay of function accept(): 0s 39.190562ms
+Delay of function accept(): 0s 38.162224ms
 Cost of function accept():                    954,220,000,002,048
-Delay of function accept(): 0s 38.712991ms
+Delay of function accept(): 0s 34.63106ms
 Cost of function accept():                    954,220,000,002,048
-Delay of function finish(): 0s 81.81229ms
+AVERAGE DELAY: 38.922437499999994ms
+AVERAGE COST: 954,219,999,998,771
+Delay of function finish(): 0s 81.77116ms
 Cost of function finish():                  2,487,779,999,989,760
-Delay of function finish(): 0s 89.099088ms
+Delay of function finish(): 0s 85.881533ms
 Cost of function finish():                  2,487,780,000,006,144
-Delay of function finish(): 0s 88.097838ms
+Delay of function finish(): 0s 76.931095ms
 Cost of function finish():                  2,487,780,000,006,144
-Delay of function finish(): 0s 92.163859ms
+Delay of function finish(): 0s 77.650134ms
 Cost of function finish():                  2,487,779,999,989,760
-Delay of function finish(): 0s 89.637632ms
+Delay of function finish(): 0s 87.24749ms
 Cost of function finish():                  2,487,780,000,006,144
-Delay of function finish(): 0s 102.757589ms
+Delay of function finish(): 0s 79.184464ms
 Cost of function finish():                  2,487,780,000,006,144
-Delay of function finish(): 0s 125.137313ms
+Delay of function finish(): 0s 83.444432ms
 Cost of function finish():                  2,487,779,999,989,760
-Delay of function finish(): 0s 86.680118ms
+Delay of function finish(): 0s 86.400283ms
 Cost of function finish():                  2,487,780,000,006,144
-Delay of function finish(): 0s 89.504676ms
+Delay of function finish(): 0s 79.863575ms
 Cost of function finish():                  2,487,779,999,989,760
-Delay of function finish(): 0s 91.54452ms
+Delay of function finish(): 0s 81.167306ms
 Cost of function finish():                  2,487,780,000,006,144
+AVERAGE DELAY: 81.9541472ms
+AVERAGE COST: 2,487,779,999,999,590
 
 For 2-party notification
 ------------------------
-Delay of function createDelivery-deploy(): 0s 69.882095ms
+Delay of function createDelivery-deploy(): 0s 56.259855ms
 Cost of function createDelivery-deploy():                  14,851,379,999,998,000
-Delay of function createDelivery-deploy(): 0s 53.624076ms
+Delay of function createDelivery-deploy(): 0s 47.888092ms
 Cost of function createDelivery-deploy():                  14,851,379,999,998,000
-Delay of function createDelivery-deploy(): 0s 50.461916ms
+Delay of function createDelivery-deploy(): 0s 54.259715ms
 Cost of function createDelivery-deploy():                  14,851,379,999,998,000
-Delay of function createDelivery-deploy(): 0s 50.361922ms
+Delay of function createDelivery-deploy(): 0s 46.70816ms
 Cost of function createDelivery-deploy():                  14,851,380,000,014,300
-Delay of function createDelivery-deploy(): 0s 50.043426ms
+Delay of function createDelivery-deploy(): 0s 47.606691ms
 Cost of function createDelivery-deploy():                  14,851,379,999,998,000
-Delay of function createDelivery-deploy(): 0s 48.204415ms
+Delay of function createDelivery-deploy(): 0s 45.735815ms
 Cost of function createDelivery-deploy():                  14,851,379,999,998,000
-Delay of function createDelivery-deploy(): 0s 54.830329ms
+Delay of function createDelivery-deploy(): 0s 109.289398ms
 Cost of function createDelivery-deploy():                  14,851,379,999,998,000
-Delay of function createDelivery-deploy(): 0s 48.59512ms
+Delay of function createDelivery-deploy(): 0s 64.43689ms
 Cost of function createDelivery-deploy():                  14,851,379,999,998,000
-Delay of function createDelivery-deploy(): 0s 46.335374ms
+Delay of function createDelivery-deploy(): 0s 48.18212ms
 Cost of function createDelivery-deploy():                  14,851,379,999,998,000
-Delay of function createDelivery-deploy(): 0s 45.544851ms
+Delay of function createDelivery-deploy(): 0s 55.610178ms
 Cost of function createDelivery-deploy():                  14,851,379,999,998,000
-Delay of function accept(): 0s 44.991531ms
+AVERAGE DELAY: 57.597691399999995ms
+AVERAGE COST: 14,851,379,999,999,600
+Delay of function accept(): 0s 37.648296ms
 Cost of function accept():                    870,899,999,997,952
-Delay of function accept(): 0s 33.478973ms
+Delay of function accept(): 0s 34.480847ms
 Cost of function accept():                    870,899,999,997,952
-Delay of function accept(): 0s 32.38436ms
+Delay of function accept(): 0s 37.064716ms
 Cost of function accept():                    870,900,000,014,336
-Delay of function accept(): 0s 44.73498ms
+Delay of function accept(): 0s 30.057069ms
 Cost of function accept():                    870,899,999,997,952
-Delay of function accept(): 0s 114.958213ms
+Delay of function accept(): 0s 38.198274ms
 Cost of function accept():                    870,899,999,997,952
-Delay of function accept(): 0s 39.961687ms
+Delay of function accept(): 0s 36.274097ms
 Cost of function accept():                    870,899,999,997,952
-Delay of function accept(): 0s 46.523212ms
+Delay of function accept(): 0s 38.862962ms
 Cost of function accept():                    870,899,999,997,952
-Delay of function accept(): 0s 44.310316ms
+Delay of function accept(): 0s 33.716982ms
 Cost of function accept():                    870,899,999,997,952
-Delay of function accept(): 0s 40.067493ms
+Delay of function accept(): 0s 36.800696ms
 Cost of function accept():                    870,899,999,997,952
-Delay of function accept(): 0s 38.207521ms
+Delay of function accept(): 0s 27.940813ms
 Cost of function accept():                    870,900,000,014,336
-Delay of function finish(): 0s 57.396434ms
+AVERAGE DELAY: 35.1044752ms
+AVERAGE COST: 870,900,000,001,228.8
+Delay of function finish(): 0s 42.806192ms
 Cost of function finish():                  1,189,779,999,997,952
-Delay of function finish(): 0s 45.356231ms
+Delay of function finish(): 0s 43.082751ms
 Cost of function finish():                  1,189,780,000,014,336
-Delay of function finish(): 0s 47.982147ms
+Delay of function finish(): 0s 45.318852ms
 Cost of function finish():                  1,189,779,999,997,952
-Delay of function finish(): 0s 45.553223ms
+Delay of function finish(): 0s 41.642409ms
 Cost of function finish():                  1,189,779,999,997,952
-Delay of function finish(): 0s 44.033522ms
+Delay of function finish(): 0s 45.860293ms
 Cost of function finish():                  1,189,779,999,997,952
-Delay of function finish(): 0s 49.46509ms
+Delay of function finish(): 0s 39.125819ms
 Cost of function finish():                  1,189,779,999,997,952
-Delay of function finish(): 0s 45.01091ms
+Delay of function finish(): 0s 41.473685ms
 Cost of function finish():                  1,189,779,999,997,952
-Delay of function finish(): 0s 46.305493ms
+Delay of function finish(): 0s 43.10861ms
 Cost of function finish():                  1,189,779,999,997,952
-Delay of function finish(): 0s 48.561325ms
+Delay of function finish(): 0s 38.246674ms
 Cost of function finish():                  1,189,779,999,997,952
-Delay of function finish(): 0s 38.028832ms
+Delay of function finish(): 0s 39.058297ms
 Cost of function finish():                  1,189,780,000,014,336
+AVERAGE DELAY: 41.972358199999995ms
+AVERAGE COST: 1,189,780,000,001,230
