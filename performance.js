@@ -13,7 +13,7 @@ const compiledNotification2party = require(compiledNotification2partyPath);
 // To prevent warning "MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 data listeners added. Use emitter.setMaxListeners() to increase limit"
 require('events').EventEmitter.defaultMaxListeners = 0;
 
-const performance = async (functionToTest, functionName, account) => {
+const performance = async (functionToTest, functionName, account, results) => {
     let balance1 = await web3.eth.getBalance(account);
     let hrstart = process.hrtime();
     let returnValue = await functionToTest();
@@ -21,8 +21,21 @@ const performance = async (functionToTest, functionName, account) => {
     let balance2 = await web3.eth.getBalance(account);
     console.log('Delay of function '+functionName+'(): %ds %dms', hrend[0], hrend[1] / 1000000);
     console.log('Cost of function '+functionName+'(): \t\t%s', (balance1-balance2).toLocaleString('en').padStart(25));
+    results.ms.push(hrend[1] / 1000000);
+    results.wei.push(balance1-balance2);
     return returnValue;
 };
+
+const average = async (results) => {
+    let totalms = 0;
+    let totalwei = 0;
+    for(let i = 0; i < results.ms.length; i++) {
+        totalms += results.ms[i];
+        totalwei += results.wei[i];
+    }
+    console.log('AVERAGE DELAY: %dms', totalms / results.ms.length);
+    console.log('AVERAGE COST: %s', (totalwei / results.wei.length).toLocaleString('en'));
+}
 
 // Test multiparty contract
 const testPerformance = async (numberReceivers, repetitions) => {
@@ -31,6 +44,8 @@ const testPerformance = async (numberReceivers, repetitions) => {
     
     let factoryContract = [];
     let deliveryContract = [];
+
+    let results = { ms: [], wei: []};
     
     // Add n receivers to the array of receivers
     let arrayReceivers = [];
@@ -43,6 +58,7 @@ const testPerformance = async (numberReceivers, repetitions) => {
     console.log('------------------------');
 
     // Deploy factory
+    results = { ms: [], wei: []};
     for (let i = 0; i < repetitions; i++) {
         factoryContract.push(await performance(
             async () => {
@@ -51,11 +67,14 @@ const testPerformance = async (numberReceivers, repetitions) => {
                     .send({ from: accounts[0], gas: '3000000' });
             },
             'deploy',
-            accounts[0]
+            accounts[0],
+            results
         ));
     }
+    average(results);
 
     // createDelivery()
+    results = { ms: [], wei: []};
     for (let i = 0; i < repetitions; i++) {
         await performance(
             async () => {
@@ -64,7 +83,8 @@ const testPerformance = async (numberReceivers, repetitions) => {
                     .send({ from: accounts[0], gas: '3000000', value: '1' });
             },
             'createDelivery',
-            accounts[0]
+            accounts[0],
+            results
         );
 
         // Get the deployed delivery contract
@@ -72,8 +92,10 @@ const testPerformance = async (numberReceivers, repetitions) => {
         let deliveryContractAddress = addresses[0];
         deliveryContract.push(await new web3.eth.Contract(JSON.parse(compiledDelivery.interface), deliveryContractAddress));
     }
+    average(results);
 
     // accept() from accounts[1]
+    results = { ms: [], wei: []};
     for (let i = 0; i < repetitions; i++) {
         await performance(
             async () => {
@@ -81,9 +103,11 @@ const testPerformance = async (numberReceivers, repetitions) => {
                     .send({ from: arrayReceivers[0], gas: '3000000' });
             },
             'accept',
-            arrayReceivers[0]
+            arrayReceivers[0],
+            results
         );
     }
+    average(results);
     
     // accept() from accounts[] of the rest of receivers
     for (let i = 0; i < repetitions; i++) {
@@ -94,6 +118,7 @@ const testPerformance = async (numberReceivers, repetitions) => {
     }
 
     // finish()
+    results = { ms: [], wei: []};
     for (let i = 0; i < repetitions; i++) {
         await performance(
             async () => {
@@ -101,9 +126,11 @@ const testPerformance = async (numberReceivers, repetitions) => {
                     .send({ from: accounts[0], gas: '3000000' });
             },
             'finish',
-            accounts[0]
+            accounts[0],
+            results
         );
     }
+    average(results);
 };
 
 // Test 2-party contract
@@ -112,12 +139,15 @@ const testPerformance2party = async (repetitions) => {
     let gasPrice = await web3.eth.getGasPrice();
     
     let notification2partyContract = [];
+
+    let results = { ms: [], wei: []};
     
     console.log('');
     console.log('For 2-party notification');
     console.log('------------------------');
 
     // Deploy factory
+    results = { ms: [], wei: []};
     for (let i = 0; i < repetitions; i++) {
         notification2partyContract.push(await performance(
             async () => {
@@ -126,11 +156,14 @@ const testPerformance2party = async (repetitions) => {
                     .send({ from: accounts[0], gas: '3000000', value: '1' });
             },
             'createDelivery-deploy',
-            accounts[0]
+            accounts[0],
+            results
         )); 
     }
+    average(results);
 
     // accept() from accounts[1]
+    results = { ms: [], wei: []};
     for (let i = 0; i < repetitions; i++) {
         await performance(
             async () => {
@@ -138,11 +171,14 @@ const testPerformance2party = async (repetitions) => {
                     .send({ from: accounts[1], gas: '3000000' });
             },
             'accept',
-            accounts[1]
+            accounts[1],
+            results
         );
     }
+    average(results);
 
     // finish()
+    results = { ms: [], wei: []};
     for (let i = 0; i < repetitions; i++) {
         await performance(
             async () => {
@@ -150,9 +186,11 @@ const testPerformance2party = async (repetitions) => {
                     .send({ from: accounts[0], gas: '3000000' });
             },
             'finish',
-            accounts[0]
+            accounts[0],
+            results
         );
     }
+    average(results);
 };
 
 const init = async (repetitions) => {
