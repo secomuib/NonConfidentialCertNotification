@@ -14,27 +14,47 @@ const compiledNotification2party = require(compiledNotification2partyPath);
 require('events').EventEmitter.defaultMaxListeners = 0;
 
 const performance = async (functionToTest, functionName, account, results) => {
+    let gasPrice = await web3.eth.getGasPrice();
+
     let balance1 = await web3.eth.getBalance(account);
     let hrstart = process.hrtime();
     let returnValue = await functionToTest();
     let hrend = process.hrtime(hrstart);
     let balance2 = await web3.eth.getBalance(account);
+    
+    let receipt;
+    if (returnValue.transactionHash) {
+        receipt = await web3.eth.getTransactionReceipt(returnValue.transactionHash);
+    }
     console.log('Delay of function '+functionName+'(): %ds %dms', hrend[0], hrend[1] / 1000000);
-    console.log('Cost of function '+functionName+'(): \t\t%s', (balance1-balance2).toLocaleString('en').padStart(25));
+    console.log('Wei cost of function '+functionName+'(): \t\t%s', (balance1-balance2).toLocaleString('en').padStart(25));
+    if (receipt) {
+        console.log('Gas cost of function '+functionName+'(): \t\t%s', (receipt.gasUsed).toLocaleString('en').padStart(25));
+    } else {
+        console.log('Gas cost of function '+functionName+'(): \t\t%s', ((balance1-balance2)/gasPrice).toLocaleString('en').padStart(25));
+    }
     results.ms.push(hrend[1] / 1000000);
     results.wei.push(balance1-balance2);
+    if (receipt) {
+        results.gas.push(receipt.gasUsed);
+    } else {
+        results.gas.push((balance1-balance2)/gasPrice);
+    }
     return returnValue;
 };
 
 const average = async (results) => {
     let totalms = 0;
     let totalwei = 0;
+    let totalgas = 0;
     for(let i = 0; i < results.ms.length; i++) {
         totalms += results.ms[i];
         totalwei += results.wei[i];
+        totalgas += results.gas[i];
     }
     console.log('AVERAGE DELAY: %dms', totalms / results.ms.length);
-    console.log('AVERAGE COST: %s', (totalwei / results.wei.length).toLocaleString('en'));
+    console.log('AVERAGE WEI COST: %s', (totalwei / results.wei.length).toLocaleString('en'));
+    console.log('AVERAGE GAS COST: %s', (totalgas / results.gas.length).toLocaleString('en'));
 }
 
 // Test multiparty contract
@@ -45,7 +65,7 @@ const testPerformance = async (numberReceivers, repetitions) => {
     let factoryContract = [];
     let deliveryContract = [];
 
-    let results = { ms: [], wei: []};
+    let results = { ms: [], wei: [], gas: []};
     
     // Add n receivers to the array of receivers
     let arrayReceivers = [];
@@ -58,7 +78,7 @@ const testPerformance = async (numberReceivers, repetitions) => {
     console.log('------------------------');
 
     // Deploy factory
-    results = { ms: [], wei: []};
+    results = { ms: [], wei: [], gas: []};
     for (let i = 0; i < repetitions; i++) {
         factoryContract.push(await performance(
             async () => {
@@ -74,11 +94,11 @@ const testPerformance = async (numberReceivers, repetitions) => {
     average(results);
 
     // createDelivery()
-    results = { ms: [], wei: []};
+    results = { ms: [], wei: [], gas: []};
     for (let i = 0; i < repetitions; i++) {
         await performance(
             async () => {
-                await factoryContract[i].methods
+                return await factoryContract[i].methods
                     .createDelivery(arrayReceivers, web3.utils.keccak256("Test message"), 600, 1200)
                     .send({ from: accounts[0], gas: '3000000', value: '1' });
             },
@@ -95,11 +115,11 @@ const testPerformance = async (numberReceivers, repetitions) => {
     average(results);
 
     // accept() from accounts[1]
-    results = { ms: [], wei: []};
+    results = { ms: [], wei: [], gas: []};
     for (let i = 0; i < repetitions; i++) {
         await performance(
             async () => {
-                await deliveryContract[i].methods.accept()
+                return await deliveryContract[i].methods.accept()
                     .send({ from: arrayReceivers[0], gas: '3000000' });
             },
             'accept',
@@ -118,11 +138,11 @@ const testPerformance = async (numberReceivers, repetitions) => {
     }
 
     // finish()
-    results = { ms: [], wei: []};
+    results = { ms: [], wei: [], gas: []};
     for (let i = 0; i < repetitions; i++) {
         await performance(
             async () => {
-                await deliveryContract[i].methods.finish("Test message")
+                return await deliveryContract[i].methods.finish("Test message")
                     .send({ from: accounts[0], gas: '3000000' });
             },
             'finish',
@@ -140,14 +160,14 @@ const testPerformance2party = async (repetitions) => {
     
     let notification2partyContract = [];
 
-    let results = { ms: [], wei: []};
+    let results = { ms: [], wei: [], gas: []};
     
     console.log('');
     console.log('For 2-party notification');
     console.log('------------------------');
 
     // Deploy factory
-    results = { ms: [], wei: []};
+    results = { ms: [], wei: [], gas: []};
     for (let i = 0; i < repetitions; i++) {
         notification2partyContract.push(await performance(
             async () => {
@@ -163,11 +183,11 @@ const testPerformance2party = async (repetitions) => {
     average(results);
 
     // accept() from accounts[1]
-    results = { ms: [], wei: []};
+    results = { ms: [], wei: [], gas: []};
     for (let i = 0; i < repetitions; i++) {
         await performance(
             async () => {
-                await notification2partyContract[i].methods.accept()
+                return await notification2partyContract[i].methods.accept()
                     .send({ from: accounts[1], gas: '3000000' });
             },
             'accept',
@@ -178,11 +198,11 @@ const testPerformance2party = async (repetitions) => {
     average(results);
 
     // finish()
-    results = { ms: [], wei: []};
+    results = { ms: [], wei: [], gas: []};
     for (let i = 0; i < repetitions; i++) {
         await performance(
             async () => {
-                await notification2partyContract[i].methods.finish("Test message")
+                return await notification2partyContract[i].methods.finish("Test message")
                     .send({ from: accounts[0], gas: '3000000' });
             },
             'finish',
